@@ -9,6 +9,18 @@
 <body>
     <h1>DIRTY DASHERS</h1>
     <h2><i>Nahi Khan and Ahmed Sultan<i></h2>
+    {% block flashing %}
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <div class="messages">
+        {% for message in messages %}
+        <span>{{ message }}</span>
+        {% endfor %}
+    </div>
+    {% endif %}
+    {% endwith %}
+    {% endblock %}
+    <br>
     <form action="/auth">
         <span>USERNAME </span><input type="text" name="username">
         <br> <br>
