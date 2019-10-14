@@ -3,6 +3,8 @@
 # K17 incorporation into K18 Average
 # 2019 - 10 - 12
 
+-----------------------------------------------------------------------------
+
 import sqlite3 # control sqlite db
 import csv # faciliate CSV off/on
 
@@ -63,13 +65,16 @@ def createAvgTable():
 # In order to function properly, rows are added to the table
 def addCourses():
     # csv addition code shall be inputted here
-
-initDict()
-studentsGrades()
-studentsAverages()
-printAverages()
-createAvgTable()
+    
+    
 addCourses()
+initDict()
+createAvgTable()
+studentsGrades()
+printAverages()
+studentsAverages()
+
+----------------------------------------------------------------------------------
 
 db.commit() # save changes
 db.close() # close database
