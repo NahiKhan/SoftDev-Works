@@ -1,4 +1,4 @@
-# Team Tuorquoise
+# Team Tuorquoise Nahi Khan
 # Period 9 SoftDev
 # K17 incorporation into K18 Average
 # 2019 - 10 - 12
@@ -8,7 +8,7 @@ import csv # faciliate CSV off/on
 
 DB_FILE = "school.db"
 
-db = sqlite3.connect(DB_FILE) # open if file exists, otherwise create
+db = sqlite3.connect(DB_FILE) # creates file if it does not already exist
 c = db.cursor() # facilitate db ops
 
 gradesDict = {}
@@ -45,24 +45,24 @@ def studentsAverages():
 def printAverages():
     q = "SELECT name, id FROM students;"
     a = c.execute(q)
-    # prints each student, their id, and their average
+    # quoted as before^
     for line in a:
         ans = "student: {}, id: {}, average: {}".format(line[0], line[1], avgDict[line[1]])
         print(ans)
 
-# creates table of IDs and associated averages, named "stu_avg"
+# student average associated with "stu_avg" with the list of IDs
 def createAvgTable():
-    # creates stu_avg table in sqlite database
+    # table of stu_avg in db created
     createCommand = "CREATE TABLE stu_avg (id INTEGER PRIMARY KEY, avg REAL);"
     c.execute(createCommand)
-    # adds id and average as records in stu_avg table
+    # stu_avg incorporates the averages and IDs
     for key in avgDict:
         insertCommand = "INSERT INTO stu_avg VALUES ({}, {});".format(key, avgDict[key])
         c.execute(insertCommand)
 
-# function to faciliate adding rows to the courses table
+# In order to function properly, rows are added to the table
 def addCourses():
-    # INSERT CODE FOR ADDING COURSES FROM UPDATED CSV HERE
+    # csv addition code shall be inputted here
 
 initDict()
 studentsGrades()
