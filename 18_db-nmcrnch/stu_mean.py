@@ -1,80 +1,52 @@
-# Team Tuorquoise Nahi Khan
-# Period 9 SoftDev
-# K17 incorporation into K18 Average
-# 2019 - 10 - 12
+#Henry Liu and Nahi Khan and TaeJoon Kim
+#SoftDev1 pd9
+#K8: Average
+#2019-10-14
 
-#-----------------------------------------------------------------------------
+import sqlite3   #enable control of an sqlite database
+import csv       #facilitate CSV I/O
 
-import sqlite3 # control sqlite db
-import csv # faciliate CSV off/on
+DB_FILE = "discobandit.db"
 
-DB_FILE = "school.db"
+db = sqlite3.connect(DB_FILE) #open if file exists, otherwise create
+c = db.cursor()               #facilitate db ops
 
-db = sqlite3.connect(DB_FILE) # creates file if it does not already exist
-c = db.cursor() # facilitate db ops
+print("To stop adding courses, press ENTER")
 
-gradesDict = {}
-avgDict = {}
+while (True):
+    code = input("Course code: ")
+    if (code == ""):
+        break
+    else:
+        mark = input("Course mark: ")
+        id = input("ID: ")
+        c.execute("INSERT INTO courses VALUES ( '{}', {}, {} );".format(code, mark, id))
 
-# initializes grades and average dictionaries with empty lists and 0.0 respectively
-def initDict():
-    q = "SELECT id FROM students;"
-    a = c.execute(q)
-    for line in a:
-        gradesDict[line[0]] = [];
-        avgDict[line[0]] = 0.0;
+c.execute("CREATE TABLE stu_avg(id INTEGER, avg INTEGER)")
 
-# looks up students' grades in dict
-def studentsGrades():
-    q = "SELECT name, students.id, mark FROM students, courses WHERE students.id = courses.id;"
-    a = c.execute(q)
-    # adds grades to grades dictionary with id as key and current grade is appended to the value
-    for line in a:
-        gradesDict[line[1]].append(line[2])
+getStudent = "SELECT name, students.id, mark FROM students, courses WHERE students.id = courses.id;"
+data = c.execute(getStudent)
 
-# computes each students averages and adds to dict
-def studentsAverages():
-    for key in gradesDict:
-        count = 0;
-        # adds grades to average dictionary with id as key and grade gets added to the value
-        for grade in gradesDict[key]:
-            avgDict[key] += grade
-            count += 1
-        # the value for the current id in the average dictionary is divided by the number of grades to get the average
-        avgDict[key] /= count
+total = 0
+amount = 0
+toDo = []
+before = 0
 
-# prints each students name, id, and average
-def printAverages():
-    q = "SELECT name, id FROM students;"
-    a = c.execute(q)
-    # quoted as before^
-    for line in a:
-        ans = "student: {}, id: {}, average: {}".format(line[0], line[1], avgDict[line[1]])
-        print(ans)
+for grade in data:
+    currentID = grade[1]
+    if (beforeID != currentID and beforeID != 0): # if not consecutive
+        commands.append("INSERT INTO stu_avg VALUES({}, {})".format(beforeID, total/amount))
+        print("Name: {}, ID: {}, Average: {}".format(name, beforeID, (total/amount)))
+        amount = 1
+        total = grade[2]
+    else:
+        amout += 1
+        total += grade[2]
+    name = grade[0]
+    beforeID = currentID
 
-# student average associated with "stu_avg" with the list of IDs
-def createAvgTable():
-    # table of stu_avg in db created
-    createCommand = "CREATE TABLE stu_avg (id INTEGER PRIMARY KEY, avg REAL);"
-    c.execute(createCommand)
-    # stu_avg incorporates the averages and IDs
-    for key in avgDict:
-        insertCommand = "INSERT INTO stu_avg VALUES ({}, {});".format(key, avgDict[key])
-        c.execute(insertCommand)
+for command in toDo:
+    c.execute(command)
 
-# In order to function properly, rows are added to the table
-def addCourses():
-    # csv addition code shall be inputted here
-    
-    
-addCourses()
-initDict()
-createAvgTable()
-studentsGrades()
-printAverages()
-studentsAverages()
-
-#----------------------------------------------------------------------------------
-
-db.commit() # save changes
-db.close() # close database
+db.commit() #save changes
+db.close()  #close database
