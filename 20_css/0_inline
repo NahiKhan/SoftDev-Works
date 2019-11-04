@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en'>
+  <!-- Nahi Khan
+       SoftDev pd9
+       K20
+       2019-11-01
+      
+  -->
+  
+    <head>
+    <meta charset="utf-8"/>
+    <title>foo title</title>
+  </head>
+  <body style = "background-color:#585858; font-family:Arial;">
+      <h1 style="color:white;
+                text-align:center;
+                font-size:50px;
+                background-color:lightgray;">
+          foo heading 1
+      </h1>
+
+      <div style="background-color:#686868;height:400px;">
+        <h3 style="font-weight:bold; margin:10px;font-size:25px;">
+          nav foo
+        </h3>
+        <ul style="float:left; margin:1px; list-style:none; width:200px; height:200px; padding:0;">
+          <li>
+            <a href="#" style="text-decoration:none;margin:8px;color:#D8D8D8;font-weight:bold;font-size:25px;">
+              dis
+            </a>
+          </li>
+          <li>
+            <a href="#" style="text-decoration:none;margin:8px;color:#D8D8D8;font-weight:bold;font-size:25px;">
+              dat
+            </a>
+          </li>
+          <li>
+            <a href="#" style="text-decoration:none;margin:8px;color:#D8D8D8;font-weight:bold;font-size:25px;">
+              de udda ting
+            </a>
+          </li>
+        </ul>
+
+        <h2 style="float:center;font-size:30px;">main foo heading</h2>
+        <p style="font-size:15px;width:80%;margin-left:200px;">
+          <!--
+          FROM https://loremipsum.io/
+          -->
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. At risus viverra adipiscing at in tellus integer feugiat. Faucibus in ornare quam viverra. Sed turpis tincidunt id aliquet risus feugiat in ante metus. Et leo duis ut diam. Tellus cras adipiscing enim eu. Facilisis mauris sit amet massa vitae. Sit amet consectetur adipiscing elit. Dignissim convallis aenean et tortor at risus viverra adipiscing at. Faucibus interdum posuere lorem ipsum dolor sit amet consectetur adipiscing. Mauris a diam maecenas sed enim ut sem viverra. Eu augue ut lectus arcu bibendum at varius. Leo integer malesuada nunc vel. In nulla posuere sollicitudin aliquam ultrices sagittis orci a scelerisque. In dictum non consectetur a erat. Ipsum a arcu cursus vitae congue mauris rhoncus aenean vel. Nibh cras pulvinar mattis nunc. Vitae et leo duis ut diam quam nulla porttitor.
+          <br>
+          <br>
+          Lacus viverra vitae congue eu consequat. Turpis egestas integer eget aliquet nibh. Sed elementum tempus egestas sed sed. Id consectetur purus ut faucibus pulvinar. Gravida cum sociis natoque penatibus. At elementum eu facilisis sed odio morbi quis commodo odio. Lectus sit amet est placerat in egestas erat imperdiet. Eu nisl nunc mi ipsum faucibus vitae aliquet. Ut venenatis tellus in metus vulputate eu scelerisque. Vitae et leo duis ut diam quam. Sollicitudin tempor id eu nisl nunc mi ipsum faucibus vitae. Dui sapien eget mi proin sed libero enim. Sed adipiscing diam donec adipiscing tristique risus. Sapien nec sagittis aliquam malesuada bibendum arcu vitae elementum curabitur. Commodo nulla facilisi nullam vehicula ipsum. Lectus magna fringilla urna porttitor rhoncus dolor purus. Auctor augue mauris augue neque gravida in. Purus sit amet luctus venenatis lectus magna fringilla urna.
+        </p>
+      </div>
+      <br>
+      <br>
+      <div style = "font-size:18px;text-align:right;color:#585858;background-color:#484848;">
+        Copyright &copy; 2016 Clyde "Thluffy" Sinclair
+      </div>
+  </body>
+
+</html>
