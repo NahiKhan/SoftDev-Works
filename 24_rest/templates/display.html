@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>NASA API</title>
+</head>
+<body>
+
+<center>
+    <h1>Picture of Astronomy</h1>
+
+    <img src="{{ data['url'] }}">
+
+    <p>Latitude: {{ lat }}</p>
+    <p>Longitude: {{ lon }}</p>
+    <p>Cloud score: {{ data['cloud_score'] }} </p>
+    <p>Date: {{ data['date'] }}</p>
+
+    <small>id: {{ data['id'] }}</small>
+
+</center>
+
+</body>
+</html>
